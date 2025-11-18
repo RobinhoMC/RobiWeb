@@ -4,79 +4,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseñador Web Freelance | Páginas Profesionales</title>
+    <title>Freelancer Web | Diseño Profesional</title>
+
+    <!-- Iconos -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 
     <style>
+        :root {
+            --neon: #00eaff;
+            --neon2: #8a2be2;
+            --dark: #0b0b0c;
+        }
+
         body {
             margin: 0;
             font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f6f6f6;
-            color: #222;
+            background: var(--dark);
+            color: #e7e7e7;
+            scroll-behavior: smooth;
         }
 
+        /* HEADER */
         header {
-            background: #111;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
             color: #fff;
-            padding: 20px 40px;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 20;
+            border-bottom: 1px solid rgba(0, 234, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 234, 255, 0.15);
+            animation: fadeDown 0.8s ease-out;
+        }
+
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-25px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        header h2 {
+            color: var(--neon);
+            text-shadow: 0 0 10px var(--neon);
         }
 
         header nav a {
             color: #fff;
-            margin-left: 20px;
+            margin-left: 25px;
             text-decoration: none;
             font-weight: 600;
+            transition: 0.3s;
         }
 
         header nav a:hover {
-            color: #00c4ff;
+            color: var(--neon);
         }
 
+        /* HERO */
         .hero {
-            padding: 120px 40px;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+            padding: 140px 40px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
                 url('https://images.unsplash.com/photo-1526378722484-cc5c510f9a01?w=1200') center/cover;
             color: #fff;
             text-align: center;
+            animation: bgMove 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 50% 0%; }
+            100% { background-position: 50% 100%; }
         }
 
         .hero h1 {
-            font-size: 45px;
+            font-size: 50px;
             margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: auto;
+            text-shadow: 0 0 10px var(--neon);
         }
 
         .btn {
             display: inline-block;
             margin-top: 25px;
-            padding: 14px 28px;
-            background: #00c4ff;
+            padding: 14px 35px;
+            background: var(--neon);
             color: #000;
             border-radius: 8px;
             font-weight: bold;
             text-decoration: none;
+            transition: 0.3s ease;
+            box-shadow: 0 0 15px var(--neon);
         }
 
-        section {
-            padding: 60px 40px;
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px var(--neon), 0 0 40px var(--neon2);
         }
 
+        /* TITULOS */
         h2 {
             text-align: center;
             font-size: 32px;
             margin-bottom: 40px;
+            color: var(--neon);
+            text-shadow: 0 0 8px var(--neon);
         }
 
+        /* SECCIONES */
+        section {
+            padding: 70px 40px;
+        }
+
+        /* SERVICIOS */
         .services {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -84,174 +124,223 @@
         }
 
         .card {
-            background: white;
+            background: #111;
             padding: 25px;
             border-radius: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
             text-align: center;
+            border: 1px solid rgba(0, 234, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+            transition: 0.3s;
+            opacity: 0;
+        }
+
+        .card i {
+            font-size: 48px;
+            color: var(--neon);
+            text-shadow: 0 0 10px var(--neon);
+            margin-bottom: 10px;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            transition: 0.3s;
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 0 30px var(--neon), 0 0 50px var(--neon2);
+            border-color: var(--neon);
         }
 
+        /* SOBRE MI */
         .about {
             max-width: 750px;
             margin: auto;
             text-align: center;
-            line-height: 1.6;
-            font-size: 18px;
+            font-size: 19px;
+            line-height: 1.7;
+            opacity: 0;
         }
 
+        /* FORMULARIO */
         form {
             max-width: 450px;
             margin: auto;
-            background: white;
-            padding: 30px;
+            background: #111;
+            padding: 35px;
             border-radius: 15px;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 20px rgba(0, 234, 255, 0.15);
+            border: 1px solid rgba(0, 234, 255, 0.3);
+            opacity: 0;
         }
 
         form input,
         form textarea {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
+            margin: 12px 0;
             border-radius: 8px;
-            border: 1px solid #bbb;
+            border: 1px solid #333;
+            background: #1a1a1a;
+            color: #fff;
         }
 
         form button {
             width: 100%;
             padding: 12px;
-            background: #00c4ff;
+            background: var(--neon);
             border: none;
             border-radius: 8px;
             font-size: 18px;
             font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 10px var(--neon);
         }
 
         form button:hover {
-            background: #0099cc;
-            cursor: pointer;
-            transition: 0.3s;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--neon);
         }
 
+        /* FOOTER */
         footer {
-            background: #111;
-            color: #fff;
+            background: #0d0d0d;
+            color: #bbb;
             text-align: center;
             padding: 20px;
             margin-top: 40px;
+            border-top: 1px solid rgba(0, 234, 255, 0.3);
         }
 
-        /* Botón flotante de WhatsApp */
+        /* BOTÓN WHATSAPP */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background: #25d366;
             color: white;
-            border-radius: 50px;
-            padding: 15px 20px;
+            border-radius: 50%;
+            padding: 18px;
+            font-size: 28px;
             text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 100;
+            box-shadow: 0 0 20px #25d366;
+            animation: bounce 2s infinite;
         }
 
-        .whatsapp-btn:hover {
-            background: #1ebe5d;
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
         }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
     </style>
 </head>
 
 <body>
 
-    <header>
-        <h2>Freelancer Web</h2>
-        <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#sobre-mi">Sobre mí</a>
-            <a href="#contacto">Contacto</a>
-        </nav>
-    </header>
+<header>
+    <h2>Freelancer Web</h2>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
 
-    <section class="hero" id="inicio">
-        <h1>Desarrollo Páginas Web Profesionales</h1>
-        <p>Trabajo solo, pero entrego resultados rápidos, modernos y optimizados para atraer más clientes a tu negocio.</p>
-        <a class="btn" href="#contacto">Solicitar una página</a>
-    </section>
+<section class="hero" id="inicio">
+    <h1>Diseños Web Profesionales & Modernos</h1>
+    <p>Páginas rápidas, optimizadas, modernas y con diseño gamer elegante.</p>
+    <a class="btn" href="#contacto">Solicitar una página</a>
+</section>
 
-    <section id="servicios">
-        <h2>Servicios</h2>
+<section id="servicios">
+    <h2>Servicios</h2>
 
-        <div class="services">
-            <div class="card">
-                <h3>Landing Page</h3>
-                <p>Ideal para negocios pequeños o emprendedores.</p>
-                <strong>Desde $40</strong>
-            </div>
-
-            <div class="card">
-                <h3>Página Profesional</h3>
-                <p>Diseño completo, secciones múltiples, responsive.</p>
-                <strong>Desde $70</strong>
-            </div>
-
-            <div class="card">
-                <h3>Tienda Online</h3>
-                <p>Catálogo, carrito y ventas automáticas.</p>
-                <strong>Desde $120</strong>
-            </div>
-
-            <div class="card">
-                <h3>Mantenimiento</h3>
-                <p>Actualizaciones, velocidad y correcciones.</p>
-                <strong>Desde $15</strong>
-            </div>
+    <div class="services">
+        <div class="card reveal">
+            <i class="ri-pages-line"></i>
+            <h3>Landing Page</h3>
+            <p>Ideal para emprendedores y negocios pequeños.</p>
+            <strong>Desde $40</strong>
         </div>
-    </section>
 
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <div class="about">
-            <p>¡Hola! Soy un desarrollador Junior web freelance. Trabajo solo para poder ofrecerte:</p>
-            <br>
-            <p>
-                ✔ Precios accesibles<br>
-                ✔ Atención directa sin intermediarios<br>
-                ✔ Trabajo rápido<br>
-                ✔ Diseño moderno<br>
-                ✔ Cada página hecha a medida de tu negocio
-            </p>
-            <br>
-            <p>Mi objetivo es ayudarte a tener presencia profesional en internet.</p>
+        <div class="card reveal">
+            <i class="ri-window-line"></i>
+            <h3>Página Profesional</h3>
+            <p>Diseño completo con todas las secciones.</p>
+            <strong>Desde $70</strong>
         </div>
-    </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
+        <div class="card reveal">
+            <i class="ri-shopping-cart-2-line"></i>
+            <h3>Tienda Online</h3>
+            <p>Ventas automáticas, carrito y catálogo.</p>
+            <strong>Desde $120</strong>
+        </div>
 
-        <form>
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="email" name="correo" placeholder="Tu correo" required>
-            <textarea name="mensaje" rows="4" placeholder="Cuéntame qué página necesitas" required></textarea>
-            <button type="submit">Enviar mensaje</button>
-        </form>
-    </section>
+        <div class="card reveal">
+            <i class="ri-tools-line"></i>
+            <h3>Mantenimiento</h3>
+            <p>Actualizaciones, velocidad y correcciones.</p>
+            <strong>Desde $15</strong>
+        </div>
+    </div>
+</section>
 
-    <footer>
-        © 2025 Freelancer Web — Trabajo independiente y profesional
-    </footer>
+<section id="sobre-mi">
+    <h2>Sobre mí</h2>
+    <div class="about reveal">
+        <p>¡Hola! Soy un desarrollador web junior freelance con pasión por el diseño moderno.</p>
+        <br>
+        <p>
+            ✔ Diseño moderno & elegante<br>
+            ✔ Estilo gamer profesional<br>
+            ✔ Trabajo rápido & directo<br>
+            ✔ Páginas optimizadas SEO<br>
+            ✔ Precios accesibles
+        </p>
+        <br>
+        <p>Mi objetivo es ayudarte a destacar en internet con un estilo único.
+            contactame en whatsapp</p>
+    </div>
+</section>
 
-    <!-- Botón flotante WhatsApp -->
-    <a href="https://wa.me/593991234567?text=Hola,%20quiero%20una%20p%C3%A1gina%20web" target="_blank" class="whatsapp-btn">
-        WhatsApp
-    </a>
+<section id="contacto">
+    <h2>Contacto</h2>
+
+    <form class="reveal">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="correo" placeholder="Tu correo" required>
+        <textarea name="mensaje" rows="4" placeholder="¿Qué página necesitas?" required></textarea>
+        <button type="submit">Enviar mensaje</button>
+    </form>
+</section>
+
+<footer>
+    © 2025 Freelancer Web — Diseño Moderno & Gamer
+</footer>
+
+<a href="https://wa.me/593991234567?text=Hola,%20quiero%20una%20p%C3%A1gina%20web" class="whatsapp-btn">
+    <i class="ri-whatsapp-line"></i>
+</a>
+
+<script>
+    document.addEventListener("scroll", () => {
+        document.querySelectorAll(".reveal").forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add("visible");
+            }
+        });
+    });
+</script>
 
 </body>
-
 </html>
